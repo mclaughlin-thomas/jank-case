@@ -4,12 +4,12 @@ import time
 # By Thomas McLaughlin and Roman Morasco
 
 def connectEspKey():
-    hostname = "google.com" #TOBE 192.168.4.1
+    hostname = "http://192.168.4.1/"
     isConnected = False
     while isConnected is False:
         time.sleep(15)
         wire = Wireless()
-        wire.connect(ssid = 'namewifi', password = 'passwrd')
+        wire.connect(ssid = 'ESPKey-config', password = 'accessgranted')
         time.sleep(5)
         response = os.system("ping -c 1 " + hostname)
         if response == 0:
