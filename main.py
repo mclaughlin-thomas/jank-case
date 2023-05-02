@@ -2,6 +2,7 @@ from wireless import Wireless
 import os
 import subprocess
 import time
+
 # By Thomas McLaughlin and Roman Morasco
 
 def connectEspKey():
@@ -35,8 +36,8 @@ def connectInternet():
     print("Connection Established")   
 
 def exfiltrateFile():
-    placeholder = "placeholder"
     #process to exfiltrate credentials.txt to external device from network
+    pass
 
 def main():
     time.sleep(0)# increase to around 30 to allow computer to start up
